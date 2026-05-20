@@ -1,0 +1,23 @@
+accelerate launch --config_file examples/wanvideo/model_training/full/accelerate_config_14B.yaml examples/wanvideo/model_training/train_s2v.py \
+  --dataset_base_path ./train_datasets/wan_s2v/example_video_dataset_large \
+  --dataset_metadata_path ./train_datasets/wan_s2v/example_video_dataset_large/evan_metadata_s2v_with_prompt_overfit.csv \
+  --data_file_keys "video,input_audio" \
+  --height 832 \
+  --width 448 \
+  --num_frames 121 \
+  --dataset_repeat 10000 \
+  --model_paths '["dummy_s2v_5b_model", "./github_projects/from_modelscope/DiffSynth-Studio/models/Wan-AI/Wan2.2-S2V-14B/wav2vec2-large-xlsr-53-english/model.safetensors", "./github_projects/from_modelscope/DiffSynth-Studio/models/Wan-AI/Wan2.2-S2V-14B/models_t5_umt5-xxl-enc-bf16.pth", "./github_projects/Wan2.2/Wan2.2-TI2V-5B/Wan2.2_VAE.pth"]' \
+  --tokenizer_path "./github_projects/from_modelscope/DiffSynth-Studio/models/Wan-AI/Wan2.2-S2V-14B/google/umt5-xxl/" \
+  --audio_processor_path "./github_projects/from_modelscope/DiffSynth-Studio/models/Wan-AI/Wan2.2-S2V-14B/wav2vec2-large-xlsr-53-english/" \
+  --dataset_num_workers 8 \
+  --learning_rate 5e-5 \
+  --num_epochs 100 \
+  --trainable_models "dit" \
+  --remove_prefix_in_ckpt "pipe.dit." \
+  --output_path "./models/train/Evan-Wan2.2-S2V-5B_full-PIM" \
+  --save_steps 1000 \
+  --extra_inputs "input_image,input_audio" \
+  --use_gradient_checkpointing \
+  --task sft \
+  --resume_from_checkpoint "./released_models/wan_s2v/si2v_5b_stage2/step-18000.safetensors" \
+  --inject_motion_as_prefix

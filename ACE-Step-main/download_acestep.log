@@ -1,0 +1,26 @@
+nohup: ignoring input
+[33m⚠️  Warning: 'huggingface-cli download' is deprecated. Use 'hf download' instead.[0m
+Fetching 11 files:   0%|          | 0/11 [00:00<?, ?it/s]Downloading 'model-00002-of-00004.safetensors' to 'acestep-v15-xl-turbo/.cache/huggingface/download/t9msAuTjAZjuQnmzGOwTjiptvIU=.b45f788b6dc9f15957cfa3d9b403f25f3f64c5211ecaf18dda45b67ea6470664.incomplete'
+Downloading 'model-00004-of-00004.safetensors' to 'acestep-v15-xl-turbo/.cache/huggingface/download/-dFtyT7kcgbTHt1cy9JKqruJCR4=.a868b05493c73808408f58b33a903371bb2846b53c8b19bd7476991bc8837259.incomplete'
+Downloading 'model-00001-of-00004.safetensors' to 'acestep-v15-xl-turbo/.cache/huggingface/download/IO4xwqmZYzFmxznkwkiNSBwO1H0=.e54a8413c981797312f53d512dec9944023d03f42f0740cbe86f62582cc27bdc.incomplete'
+Downloading 'README.md' to 'acestep-v15-xl-turbo/.cache/huggingface/download/Xn7B-BWUGOee2Y6hCZtEhtFu4BE=.1a0e8752fe0703c9fecd900dbb9a49b82c57c998.incomplete'
+Downloading 'config.json' to 'acestep-v15-xl-turbo/.cache/huggingface/download/8_PA_wEVGiVa2goH2H4KQOQpvVY=.0b360602d32112044b2c6f761b07ed8c06f2fba6.incomplete'
+Download complete. Moving file to acestep-v15-xl-turbo/config.json
+Downloading 'configuration_acestep_v15.py' to 'acestep-v15-xl-turbo/.cache/huggingface/download/s_rIei101rwLAcQoqVZX_A48m88=.e54e1c82f004851d356a0589c8ea94227ed61274.incomplete'
+Downloading '.gitattributes' to 'acestep-v15-xl-turbo/.cache/huggingface/download/wPaCkH-WbT7GsmxMKKrNZTV4nSM=.a6344aac8c09253b3b630fb776ae94478aa0275b.incomplete'
+Download complete. Moving file to acestep-v15-xl-turbo/README.md
+Download complete. Moving file to acestep-v15-xl-turbo/configuration_acestep_v15.py
+Download complete. Moving file to acestep-v15-xl-turbo/.gitattributes
+Fetching 11 files:   9%|▉         | 1/11 [00:02<00:28,  2.80s/it]Downloading 'model.safetensors.index.json' to 'acestep-v15-xl-turbo/.cache/huggingface/download/yVzAsSxRSINSz-tQbpx-TLpfkLU=.d383f21e424f222cf9af0677ca983d71ffac34b5.incomplete'
+Downloading 'silence_latent.pt' to 'acestep-v15-xl-turbo/.cache/huggingface/download/ElRBWWI5TCuATnn_R9vwcjBPCHE=.a778e9dd942f5e8b2c09c55370782d318834432b03dabbcdf70e6ed49ad6358b.incomplete'
+Download complete. Moving file to acestep-v15-xl-turbo/model.safetensors.index.json
+Downloading 'modeling_acestep_v15_xl_turbo.py' to 'acestep-v15-xl-turbo/.cache/huggingface/download/2f8Se5xELEBZr-Td1JON6C05Uj4=.0c1ae8cad0365849a99e894c483316ebf4760b1a.incomplete'
+Download complete. Moving file to acestep-v15-xl-turbo/silence_latent.pt
+Download complete. Moving file to acestep-v15-xl-turbo/modeling_acestep_v15_xl_turbo.py
+Downloading 'model-00003-of-00004.safetensors' to 'acestep-v15-xl-turbo/.cache/huggingface/download/DaGOU-KRMVrY0aYktrsE34tL0Bs=.a4f6bd572eab79cf5f3e4678796f904c6d6c33680a3e6ed09034d6de7cabea4d.incomplete'
+Download complete. Moving file to acestep-v15-xl-turbo/model-00002-of-00004.safetensors
+Download complete. Moving file to acestep-v15-xl-turbo/model-00003-of-00004.safetensors
+Download complete. Moving file to acestep-v15-xl-turbo/model-00001-of-00004.safetensors
+Fetching 11 files:  45%|████▌     | 5/11 [06:52<08:46, 87.68s/it]Download complete. Moving file to acestep-v15-xl-turbo/model-00004-of-00004.safetensors
+Fetching 11 files:  73%|███████▎  | 8/11 [07:27<02:33, 51.28s/it]Fetching 11 files: 100%|██████████| 11/11 [07:27<00:00, 40.64s/it]
+/home/xiangmk/ACE-Step-1.5-main/checkpoints/acestep-v15-xl-turbo

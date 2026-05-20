@@ -1,0 +1,19 @@
+ckpt_dir: ./ckpts
+ovi_ckpt: ./models/train/Ovi_sft/step-500.safetensors
+output_dir: ./outputs/t2v_640x640_seed103_sft_step500_v2 # _baseprompt
+num_steps: 50
+solver_name: unipc
+shift: 5.0
+sp_size: 8
+audio_guidance_scale: 3.0
+video_guidance_scale: 4.0
+mode: "t2v" # ["t2v", "i2v", "t2i2v"] all comes with audio
+fp8: False
+cpu_offload: False
+seed: 103
+video_negative_prompt: "jitter, bad hands, blur, distortion"  # Artifacts to avoid in video
+audio_negative_prompt: "robotic, muffled, echo, distorted"    # Artifacts to avoid in audio
+video_frame_height_width: [640, 640] # only useful if mode = t2v or t2i2v, recommended values: [512, 992], [992, 512], [960, 512], [512, 960], [720, 720], [448, 1120]
+text_prompt: example_prompts/sft_t2v_10_v2.csv # example_prompts/gpt_examples_t2v.csv # example_prompts/sft_t2v_10.csv
+slg_layer: 11
+each_example_n_times: 1

@@ -1,0 +1,1 @@
+pdsh -f 999 -w $node_ip "yum install -y sshpass"

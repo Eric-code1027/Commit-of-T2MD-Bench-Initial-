@@ -1,0 +1,19 @@
+accelerate launch --config_file examples/wanvideo/model_training/full/accelerate_config_14B.yaml examples/wanvideo/model_training/train.py \
+  --dataset_base_path ./train_datasets/wan_s2v/example_video_dataset \
+  --dataset_metadata_path ./train_datasets/wan_s2v/example_video_dataset/evan_metadata_s2v_with_prompt.csv \
+  --data_file_keys "video,input_audio" \
+  --height 832 \
+  --width 448 \
+  --num_frames 81 \
+  --dataset_repeat 100 \
+  --model_paths '[["./github_projects/from_modelscope/DiffSynth-Studio/models/Wan-AI/Wan2.2-S2V-14B/diffusion_pytorch_model-00001-of-00004.safetensors", "./github_projects/from_modelscope/DiffSynth-Studio/models/Wan-AI/Wan2.2-S2V-14B/diffusion_pytorch_model-00002-of-00004.safetensors", "./github_projects/from_modelscope/DiffSynth-Studio/models/Wan-AI/Wan2.2-S2V-14B/diffusion_pytorch_model-00003-of-00004.safetensors", "./github_projects/from_modelscope/DiffSynth-Studio/models/Wan-AI/Wan2.2-S2V-14B/diffusion_pytorch_model-00004-of-00004.safetensors"], "./github_projects/from_modelscope/DiffSynth-Studio/models/Wan-AI/Wan2.2-S2V-14B/wav2vec2-large-xlsr-53-english/model.safetensors", "./github_projects/from_modelscope/DiffSynth-Studio/models/Wan-AI/Wan2.2-S2V-14B/models_t5_umt5-xxl-enc-bf16.pth", "./github_projects/from_modelscope/DiffSynth-Studio/models/Wan-AI/Wan2.2-S2V-14B/Wan2.1_VAE.pth"]' \
+  --tokenizer_path "./github_projects/from_modelscope/DiffSynth-Studio/models/Wan-AI/Wan2.2-S2V-14B/google/umt5-xxl/" \
+  --audio_processor_path "./github_projects/from_modelscope/DiffSynth-Studio/models/Wan-AI/Wan2.2-S2V-14B/wav2vec2-large-xlsr-53-english/" \
+  --dataset_num_workers 4 \
+  --learning_rate 1e-5 \
+  --num_epochs 1 \
+  --trainable_models "dit" \
+  --remove_prefix_in_ckpt "pipe.dit." \
+  --output_path "./models/train/Evan-Wan2.2-S2V-14B_full" \
+  --extra_inputs "input_image,input_audio" \
+  --use_gradient_checkpointing_offload

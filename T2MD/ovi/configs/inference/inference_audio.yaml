@@ -1,0 +1,16 @@
+ckpt_dir: ./Ovi/ckpts
+ovi_ckpt: ./AudioSummary/DiffSynth-Studio-Output/t2a_train_V0129/step-22000.safetensors
+output_dir: ./AudioSummary/DiffSynth-Studio-Output/t2a_V0129_22000
+num_steps: 50
+solver_name: unipc
+shift: 5.0
+sp_size: 8
+audio_guidance_scale: 3.0
+mode: "t2v" # ["t2v", "i2v", "t2i2v"] all comes with audio
+fp8: False
+cpu_offload: False
+seed: 103
+audio_negative_prompt: ""    # Artifacts to avoid in audio
+text_prompt: ./AudioSummary/DiffSynth-Studio/inference/a_input.csv
+slg_layer: 11
+each_example_n_times: 1

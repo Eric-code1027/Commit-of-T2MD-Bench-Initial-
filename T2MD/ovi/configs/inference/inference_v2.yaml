@@ -1,0 +1,36 @@
+# === Ovi 视频分支 ===
+ckpt_dir: ./ckpts
+ovi_ckpt: ./ckpts/Ovi/model_fp8_e4m3fn.safetensors
+output_dir: ./outputs/t2av_v2_demo
+
+# === 输入 ===
+text_prompt: ./inference/i2av_input.csv
+
+# === 模式 ===
+mode: "i2v"                                    # 开启 image ref
+video_frame_height_width: [448, 832]
+audio_duration: 5.04
+
+# === 4090 必备 ===
+fp8: True
+cpu_offload: True
+
+# === 卡分配 ===
+video_device: 1
+audio_device: "cuda:1"
+
+# === 视频采样 ===
+num_steps: 50
+solver_name: unipc
+shift: 5.0
+seed: 103
+sp_size: 1
+video_guidance_scale: 4.0
+video_negative_prompt: "jitter, bad hands, blur, distortion"
+slg_layer: 11
+each_example_n_times: 1
+
+# === ACE-Step 配置 ===
+acestep_project_root: /home/xiangmk/ACE-Step-1.5-main   # !! 改成你机器的实际绝对路径 !!
+acestep_config_path: "acestep-v15-turbo"
+acestep_infer_steps: 8

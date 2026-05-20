@@ -1,0 +1,228 @@
+Loading ckptA ...
+Loading ckptB ...
+
+================================================================================
+基本信息
+================================================================================
+ckptA key 数量: 942
+ckptB key 数量: 942
+共有 key 数量:  942
+仅在 A 中的 key: 0
+仅在 B 中的 key: 0
+
+================================================================================
+逐层权重差异分析 (共有 key)
+================================================================================
+
+未变化层数量: 154
+已变化层数量: 788
+总共有 key:   942
+
+--- 未变化的层 (154) ---
+  audio_injector.injector.0.norm_k.weight
+  audio_injector.injector.0.norm_q.weight
+  audio_injector.injector.1.norm_k.weight
+  audio_injector.injector.1.norm_q.weight
+  audio_injector.injector.2.norm_k.weight
+  audio_injector.injector.2.norm_q.weight
+  audio_injector.injector.3.norm_k.weight
+  audio_injector.injector.3.norm_q.weight
+  audio_injector.injector.4.norm_k.weight
+  audio_injector.injector.4.norm_q.weight
+  audio_injector.injector.5.norm_k.weight
+  audio_injector.injector.5.norm_q.weight
+  audio_injector.injector.6.norm_k.weight
+  audio_injector.injector.6.norm_q.weight
+  audio_injector.injector.7.norm_k.weight
+  audio_injector.injector.7.norm_q.weight
+  blocks.0.cross_attn.norm_k.weight
+  blocks.0.cross_attn.norm_q.weight
+  blocks.0.norm3.weight
+  blocks.0.self_attn.norm_k.weight
+  blocks.0.self_attn.norm_q.weight
+  blocks.1.cross_attn.norm_k.weight
+  blocks.1.cross_attn.norm_q.weight
+  blocks.1.norm3.weight
+  blocks.1.self_attn.norm_k.weight
+  blocks.1.self_attn.norm_q.weight
+  blocks.10.cross_attn.norm_k.weight
+  blocks.10.cross_attn.norm_q.weight
+  blocks.10.norm3.weight
+  blocks.10.self_attn.norm_k.weight
+  blocks.10.self_attn.norm_q.weight
+  blocks.11.self_attn.norm_k.weight
+  blocks.11.self_attn.norm_q.weight
+  blocks.12.cross_attn.norm_k.weight
+  blocks.12.cross_attn.norm_q.weight
+  blocks.12.norm3.weight
+  blocks.12.self_attn.norm_k.weight
+  blocks.12.self_attn.norm_q.weight
+  blocks.13.cross_attn.norm_k.weight
+  blocks.13.cross_attn.norm_q.weight
+  blocks.13.self_attn.norm_k.weight
+  blocks.13.self_attn.norm_q.weight
+  blocks.14.cross_attn.norm_k.weight
+  blocks.14.cross_attn.norm_q.weight
+  blocks.14.self_attn.norm_k.weight
+  blocks.14.self_attn.norm_q.weight
+  blocks.15.cross_attn.norm_k.weight
+  blocks.15.cross_attn.norm_q.weight
+  blocks.15.norm3.weight
+  blocks.15.self_attn.norm_k.weight
+  blocks.15.self_attn.norm_q.weight
+  blocks.16.norm3.weight
+  blocks.16.self_attn.norm_k.weight
+  blocks.16.self_attn.norm_q.weight
+  blocks.17.norm3.weight
+  blocks.17.self_attn.norm_k.weight
+  blocks.17.self_attn.norm_q.weight
+  blocks.18.cross_attn.norm_k.weight
+  blocks.18.cross_attn.norm_q.weight
+  blocks.18.norm3.weight
+  blocks.18.self_attn.norm_k.weight
+  blocks.18.self_attn.norm_q.weight
+  blocks.19.cross_attn.norm_k.weight
+  blocks.19.cross_attn.norm_q.weight
+  blocks.19.norm3.weight
+  blocks.19.self_attn.norm_k.weight
+  blocks.19.self_attn.norm_q.weight
+  blocks.2.self_attn.norm_k.weight
+  blocks.2.self_attn.norm_q.weight
+  blocks.20.cross_attn.norm_k.weight
+  blocks.20.cross_attn.norm_q.weight
+  blocks.20.norm3.weight
+  blocks.20.self_attn.norm_k.weight
+  blocks.20.self_attn.norm_q.weight
+  blocks.21.cross_attn.norm_k.weight
+  blocks.21.cross_attn.norm_q.weight
+  blocks.21.norm3.weight
+  blocks.21.self_attn.norm_k.weight
+  blocks.21.self_attn.norm_q.weight
+  blocks.22.cross_attn.norm_k.weight
+  blocks.22.cross_attn.norm_q.weight
+  blocks.22.norm3.weight
+  blocks.22.self_attn.norm_k.weight
+  blocks.22.self_attn.norm_q.weight
+  blocks.23.cross_attn.norm_k.weight
+  blocks.23.cross_attn.norm_q.weight
+  blocks.23.norm3.weight
+  blocks.23.self_attn.norm_k.weight
+  blocks.23.self_attn.norm_q.weight
+  blocks.24.cross_attn.norm_k.weight
+  blocks.24.cross_attn.norm_q.weight
+  blocks.24.norm3.weight
+  blocks.24.self_attn.norm_k.weight
+  blocks.24.self_attn.norm_q.weight
+  blocks.25.cross_attn.norm_k.weight
+  blocks.25.cross_attn.norm_q.weight
+  blocks.25.norm3.weight
+  blocks.25.self_attn.norm_k.weight
+  blocks.25.self_attn.norm_q.weight
+  blocks.26.cross_attn.norm_k.weight
+  blocks.26.cross_attn.norm_q.weight
+  blocks.26.norm3.weight
+  blocks.26.self_attn.norm_k.weight
+  blocks.26.self_attn.norm_q.weight
+  blocks.27.cross_attn.norm_k.weight
+  blocks.27.cross_attn.norm_q.weight
+  blocks.27.norm3.weight
+  blocks.27.self_attn.norm_k.weight
+  blocks.27.self_attn.norm_q.weight
+  blocks.28.cross_attn.norm_k.weight
+  blocks.28.cross_attn.norm_q.weight
+  blocks.28.norm3.weight
+  blocks.28.self_attn.norm_k.weight
+  blocks.28.self_attn.norm_q.weight
+  blocks.29.norm3.weight
+  blocks.29.self_attn.norm_k.weight
+  blocks.29.self_attn.norm_q.weight
+  blocks.3.cross_attn.norm_k.weight
+  blocks.3.cross_attn.norm_q.weight
+  blocks.3.norm3.weight
+  blocks.3.self_attn.norm_k.weight
+  blocks.3.self_attn.norm_q.weight
+  blocks.4.cross_attn.norm_k.weight
+  blocks.4.cross_attn.norm_q.weight
+  blocks.4.norm3.weight
+  blocks.4.self_attn.norm_k.weight
+  blocks.4.self_attn.norm_q.weight
+  blocks.5.cross_attn.norm_k.weight
+  blocks.5.cross_attn.norm_q.weight
+  blocks.5.norm3.weight
+  blocks.5.self_attn.norm_k.weight
+  blocks.5.self_attn.norm_q.weight
+  blocks.6.cross_attn.norm_k.weight
+  blocks.6.cross_attn.norm_q.weight
+  blocks.6.self_attn.norm_k.weight
+  blocks.6.self_attn.norm_q.weight
+  blocks.7.cross_attn.norm_k.weight
+  blocks.7.cross_attn.norm_q.weight
+  blocks.7.norm3.weight
+  blocks.7.self_attn.norm_k.weight
+  blocks.7.self_attn.norm_q.weight
+  blocks.8.self_attn.norm_k.weight
+  blocks.8.self_attn.norm_q.weight
+  blocks.9.cross_attn.norm_k.weight
+  blocks.9.cross_attn.norm_q.weight
+  blocks.9.self_attn.norm_k.weight
+  blocks.9.self_attn.norm_q.weight
+  cond_encoder.weight
+  frame_packer.proj.bias
+  frame_packer.proj.weight
+  frame_packer.proj_2x.bias
+  frame_packer.proj_2x.weight
+  frame_packer.proj_4x.bias
+  frame_packer.proj_4x.weight
+
+--- Top-20 相对变化率最大的层 ---
+Layer                                                                               RelChange     L2(diff)   MaxAbsDiff     MeanDiff        L2(A)                Shape
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+text_embedding.0.bias                                                                1.531420     0.024654     0.001654     0.000040     0.016099              (3072,)
+text_embedding.2.bias                                                                0.834185     0.025898     0.001341    -0.000008     0.031045              (3072,)
+casual_audio_encoder.encoder.padding_tokens                                          0.744238     0.040854     0.001579    -0.000009     0.054894      (1, 1, 1, 3072)
+blocks.2.cross_attn.v.bias                                                           0.357479     0.021765     0.001317    -0.000005     0.060884              (3072,)
+blocks.1.cross_attn.v.bias                                                           0.345324     0.021564     0.001228    -0.000002     0.062447              (3072,)
+blocks.8.cross_attn.v.bias                                                           0.319225     0.019470     0.001173    -0.000003     0.060991              (3072,)
+blocks.5.cross_attn.v.bias                                                           0.296438     0.019436     0.001179     0.000004     0.065567              (3072,)
+blocks.3.cross_attn.v.bias                                                           0.284212     0.020785     0.001102    -0.000012     0.073133              (3072,)
+blocks.10.cross_attn.v.bias                                                          0.258749     0.019616     0.001175     0.000008     0.075812              (3072,)
+blocks.14.cross_attn.v.bias                                                          0.255446     0.019526     0.001305    -0.000002     0.076439              (3072,)
+blocks.11.cross_attn.v.bias                                                          0.244744     0.019619     0.001205     0.000011     0.080162              (3072,)
+time_embedding.0.bias                                                                0.243145     0.039240     0.001560    -0.000039     0.161384              (3072,)
+blocks.16.cross_attn.v.bias                                                          0.228679     0.018920     0.001175    -0.000003     0.082735              (3072,)
+blocks.7.cross_attn.v.bias                                                           0.225880     0.020003     0.001265     0.000001     0.088557              (3072,)
+blocks.1.self_attn.v.bias                                                            0.194341     0.023372     0.001129     0.000006     0.120264              (3072,)
+blocks.4.cross_attn.v.bias                                                           0.169307     0.019816     0.001194     0.000005     0.117043              (3072,)
+blocks.6.cross_attn.v.bias                                                           0.162590     0.019615     0.001236    -0.000009     0.120638              (3072,)
+blocks.2.self_attn.v.bias                                                            0.160452     0.022897     0.001204     0.000001     0.142705              (3072,)
+blocks.3.self_attn.v.bias                                                            0.149529     0.021841     0.001255    -0.000008     0.146063              (3072,)
+blocks.19.cross_attn.v.bias                                                          0.148602     0.018150     0.001165     0.000001     0.122140              (3072,)
+
+--- Top-20 相对变化率最小的层 (非零) ---
+Layer                                                                               RelChange     L2(diff)   MaxAbsDiff     MeanDiff        L2(A)                Shape
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+blocks.6.norm3.weight                                                                0.000034     0.001953     0.001953     0.000001    56.896076              (3072,)
+blocks.9.norm3.weight                                                                0.000035     0.001953     0.001953     0.000001    55.998341              (3072,)
+blocks.14.norm3.weight                                                               0.000035     0.001953     0.001953    -0.000001    55.674076              (3072,)
+blocks.8.norm3.weight                                                                0.000060     0.003383     0.001953    -0.000001    56.274326              (3072,)
+blocks.11.norm3.weight                                                               0.000061     0.003383     0.001953    -0.000001    55.791241              (3072,)
+blocks.13.norm3.weight                                                               0.000061     0.003383     0.001953    -0.000001    55.225681              (3072,)
+blocks.11.cross_attn.norm_q.weight                                                   0.000067     0.003906     0.003906     0.000001    58.671867              (3072,)
+blocks.11.cross_attn.norm_k.weight                                                   0.000067     0.003906     0.003906     0.000001    58.671814              (3072,)
+blocks.8.cross_attn.norm_k.weight                                                    0.000069     0.003906     0.003906     0.000001    57.002247              (3072,)
+blocks.8.cross_attn.norm_q.weight                                                    0.000069     0.003906     0.003906     0.000001    57.001366              (3072,)
+blocks.2.norm3.weight                                                                0.000070     0.003906     0.003906    -0.000001    56.016731              (3072,)
+blocks.29.cross_attn.norm_q.weight                                                   0.000071     0.003906     0.003906    -0.000001    55.371780              (3072,)
+blocks.29.cross_attn.norm_k.weight                                                   0.000071     0.003906     0.003906    -0.000001    55.371075              (3072,)
+blocks.16.cross_attn.norm_k.weight                                                   0.000098     0.005524     0.003906     0.000003    56.413437              (3072,)
+blocks.16.cross_attn.norm_q.weight                                                   0.000098     0.005524     0.003906     0.000003    56.412819              (3072,)
+blocks.2.cross_attn.norm_q.weight                                                    0.000103     0.005524     0.003906     0.000000    53.820801              (3072,)
+blocks.2.cross_attn.norm_k.weight                                                    0.000103     0.005524     0.003906     0.000000    53.820072              (3072,)
+trainable_cond_mask.weight                                                           0.000121     0.011266     0.001953     0.000002    93.148956            (3, 3072)
+blocks.17.cross_attn.norm_q.weight                                                   0.000143     0.007812     0.003906    -0.000003    54.655869              (3072,)
+blocks.17.cross_attn.norm_k.weight                                                   0.000143     0.007812     0.003906    -0.000003    54.655819              (3072,)
+
+--- 总体统计 ---
+已变化层的平均相对变化率: 0.032432
+已变化层的最大相对变化率: 1.531420 (text_embedding.0.bias)
+已变化层的最小相对变化率: 0.000034 (blocks.6.norm3.weight)

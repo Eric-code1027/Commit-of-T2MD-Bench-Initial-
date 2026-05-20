@@ -1,0 +1,33 @@
+accelerate launch --config_file examples/wanvideo/model_training/full/accelerate_config_14B.yaml examples/wanvideo/model_training/train_s2v.py \
+  --dataset_base_path ./train_datasets/wan_s2v/example_video_dataset_large \
+  --dataset_metadata_path ./train_datasets/wan_s2v/example_video_dataset_large/evan_metadata_s2v_with_prompt_overfit.csv \
+  --data_file_keys "video,input_audio" \
+  --height 832 \
+  --width 448 \
+  --num_frames 45 \
+  --dataset_repeat 10000 \
+  --model_paths '["dummy_s2v_5b_model", "./github_projects/from_modelscope/DiffSynth-Studio/models/Wan-AI/Wan2.2-S2V-14B/wav2vec2-large-xlsr-53-english/model.safetensors", "./github_projects/from_modelscope/DiffSynth-Studio/models/Wan-AI/Wan2.2-S2V-14B/models_t5_umt5-xxl-enc-bf16.pth", "./github_projects/Wan2.2/Wan2.2-TI2V-5B/Wan2.2_VAE.pth"]' \
+  --tokenizer_path "./github_projects/from_modelscope/DiffSynth-Studio/models/Wan-AI/Wan2.2-S2V-14B/google/umt5-xxl/" \
+  --audio_processor_path "./github_projects/from_modelscope/DiffSynth-Studio/models/Wan-AI/Wan2.2-S2V-14B/wav2vec2-large-xlsr-53-english/" \
+  --dataset_num_workers 2 \
+  --learning_rate 5e-5 \
+  --num_epochs 100 \
+  --trainable_models "dit" \
+  --remove_prefix_in_ckpt "pipe.dit." \
+  --output_path "./models/train/Evan-Wan2.2-S2V-TI-SelfForcing-5B" \
+  --save_steps 200 \
+  --extra_inputs "input_image,input_audio" \
+  --use_gradient_checkpointing \
+  --gradient_accumulation_steps 1 \
+  --task ti_self_forcing \
+  --chunk_frames 25 \
+  --motion_latent_frames 1 \
+  --teacher_steps 40 \
+  --student_steps 2 \
+  --teacher_cfg_scale 5.0 \
+  --ema_device "cpu" \
+  --ema_dtype "bf16" \
+  --ema_rate 0.1 \
+  --resume_from_checkpoint "./released_models/wan_s2v/si2v_5b_stage2/step-15000.safetensors"
+  # --ema_enabled \
+  # --num_frames 45 \ # 65: 3 chunks, 85: 4 chunks

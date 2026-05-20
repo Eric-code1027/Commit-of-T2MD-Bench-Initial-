@@ -1,0 +1,16 @@
+nohup: ignoring input
+[33m⚠️  Warning: 'huggingface-cli download' is deprecated. Use 'hf download' instead.[0m
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]Downloading 'google/umt5-xxl/tokenizer_config.json' to 'Wan2.2-TI2V-5B/.cache/huggingface/download/google/umt5-xxl/vzaExXFZNBay89bvlQv-ZcI6BTg=.4e1cc1cd85599ce0b47fd0a746af188fe4043ff2.incomplete'
+Downloading 'google/umt5-xxl/spiece.model' to 'Wan2.2-TI2V-5B/.cache/huggingface/download/google/umt5-xxl/vj8E1loknrCNPSP8nWJC234Bff4=.e3909a67b780650b35cf529ac782ad2b6b26e6d1f849d3fbb6a872905f452458.incomplete'
+Download complete. Moving file to Wan2.2-TI2V-5B/google/umt5-xxl/tokenizer_config.json
+Downloading 'google/umt5-xxl/special_tokens_map.json' to 'Wan2.2-TI2V-5B/.cache/huggingface/download/google/umt5-xxl/ahkChHUJFxEmOdq5GDFEmerRzCY=.14855e7052ffbb595057dfd791d293c1c940db2c.incomplete'
+Downloading 'google/umt5-xxl/tokenizer.json' to 'Wan2.2-TI2V-5B/.cache/huggingface/download/google/umt5-xxl/HgM_lKo9sdSCfRtVg7MMFS7EKqo=.6e197b4d3dbd71da14b4eb255f4fa91c9c1f2068b20a2de2472967ca3d22602b.incomplete'
+Download complete. Moving file to Wan2.2-TI2V-5B/google/umt5-xxl/special_tokens_map.json
+Downloading 'Wan2.2_VAE.pth' to 'Wan2.2-TI2V-5B/.cache/huggingface/download/CHzdR2H1q5_tJrjQMk3clUgGTXg=.20eb789667fa5e60e7516bf509512f6cb61f01b0aa0695eadaea930c13892b36.incomplete'
+Downloading 'models_t5_umt5-xxl-enc-bf16.pth' to 'Wan2.2-TI2V-5B/.cache/huggingface/download/7xjTyx9p9-CteGiI3VEINu_Ohx0=.7cace0da2b446bbbbc57d031ab6cf163a3d59b366da94e5afe36745b746fd81d.incomplete'
+Download complete. Moving file to Wan2.2-TI2V-5B/google/umt5-xxl/spiece.model
+Download complete. Moving file to Wan2.2-TI2V-5B/google/umt5-xxl/tokenizer.json
+Download complete. Moving file to Wan2.2-TI2V-5B/Wan2.2_VAE.pth
+Fetching 6 files:  17%|█▋        | 1/6 [03:46<18:54, 226.86s/it]Download complete. Moving file to Wan2.2-TI2V-5B/models_t5_umt5-xxl-enc-bf16.pth
+Fetching 6 files: 100%|██████████| 6/6 [12:06<00:00, 115.56s/it]Fetching 6 files: 100%|██████████| 6/6 [12:06<00:00, 121.12s/it]
+/home/xiangmk/T2MD-Bench-main/ckpts/Wan2.2-TI2V-5B

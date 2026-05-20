@@ -1,0 +1,18 @@
+nohup: ignoring input
+[33m⚠️  Warning: 'huggingface-cli download' is deprecated. Use 'hf download' instead.[0m
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Downloading 'model.safetensors' to 'Ovi/.cache/huggingface/download/xGOKKLRSlIhH692hSVvI1-gpoa8=.2fc69b734ffb68081240b957ecfc10cf63c1a80fbf38492f60d8e4aad8440cc4.incomplete'
+Downloading 'model_960x960_10s.safetensors' to 'Ovi/.cache/huggingface/download/6ry7ekU3vOwlyvPkc8YsaIcCY5E=.3dd7ed62abdb959048bfbaa76962cfae6a697313e3a6ac802fc1d5b39469cf6a.incomplete'
+Downloading 'assets/ovi_trailer.mp4' to 'Ovi/.cache/huggingface/download/assets/h61wlLqaEkZdAfd79yR4QuRBGyY=.6f66cb979fb01bc831516ca57010fe69442b701347b3a9f249294c58f54836ff.incomplete'
+Downloading 'README.md' to 'Ovi/.cache/huggingface/download/Xn7B-BWUGOee2Y6hCZtEhtFu4BE=.7054db2717c7070787cc1313c1d6c72ef26091ef.incomplete'
+Downloading 'config.json' to 'Ovi/.cache/huggingface/download/8_PA_wEVGiVa2goH2H4KQOQpvVY=.3c627657ddcd25cc4fecf3b1a1ffb7a609a98c40.incomplete'
+Downloading '.gitattributes' to 'Ovi/.cache/huggingface/download/wPaCkH-WbT7GsmxMKKrNZTV4nSM=.a6a7451cd4955e12e2b6782ccce2ae9f2004d4ce.incomplete'
+Download complete. Moving file to Ovi/README.md
+Download complete. Moving file to Ovi/config.json
+Download complete. Moving file to Ovi/.gitattributes
+Fetching 7 files:  14%|█▍        | 1/7 [00:02<00:17,  2.99s/it]Downloading 'model_960x960.safetensors' to 'Ovi/.cache/huggingface/download/n0QnF_u0N8GwaM0srrNLelorFh0=.661232ca02453cf3880ae6f2bb26b4c1bbe55bce04a66bc3a5e6b6dbf029a0c5.incomplete'
+Download complete. Moving file to Ovi/assets/ovi_trailer.mp4
+Fetching 7 files:  43%|████▎     | 3/7 [00:05<00:06,  1.55s/it]Download complete. Moving file to Ovi/model_960x960_10s.safetensors
+Download complete. Moving file to Ovi/model_960x960.safetensors
+Download complete. Moving file to Ovi/model.safetensors
+Fetching 7 files:  71%|███████▏  | 5/7 [19:43<10:07, 303.76s/it]Fetching 7 files: 100%|██████████| 7/7 [19:43<00:00, 169.11s/it]
+/home/xiangmk/T2MD-Bench-main/ckpts/Ovi
