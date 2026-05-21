@@ -10,8 +10,8 @@
 
 ###  ACE-Step fusion(塔级 cross-attn)
 由于 ACE-Step 的 `AceStepDiTModel` 是 monolithic 调用(24 层封装在
-`forward` 内部,从外部无法在层间插入交互),无法做到"逐层 cross-attn"。
-我们采用 **塔级 cross-attn**:
+`forward` 内部,从外部无法在层间插入交互),无法做到逐层 cross-attn。
+因此采用 **塔级 cross-attn**:
 
 - 每个 denoise step:
   1. **ACE-Step DiT 一次跑完 24 层**,得到 audio flow 预测 + audio hidden
@@ -63,12 +63,12 @@ acestep_project_root: /root/ACE-Step-1.5-main
 
 (指向 ACE-Step-1.5-main 项目根目录,handler 通过这个找权重)
 
-### 删除(原独立音频分支已废弃)
+### 废弃(原独立音频分支已废弃)
 
 | 文件 / 目录 | 原作用 |
 |---|---|
 | `ovi/modules/mmaudio/` | 原 MMAudio VAE + DiT 实现 |
-| `ovi/ovi_video_only_engine.py` | 旧"视频独立推理"引擎 |
+| `ovi/ovi_video_only_engine.py` | 旧视频独立推理引擎 |
 | `ovi/audio_branches/acestep_branch.py` | 旧"ACE-Step 独立推理"wrapper |
 
 ## 训练/推理可训练参数
