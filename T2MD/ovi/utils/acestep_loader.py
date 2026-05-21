@@ -1,73 +1,95 @@
 """
-加载 ACE-Step DiT 主干 (AceStepDiTModel),并把它的每一层 cross_attn 接口
-重定向到接受 Ovi video 塔传过来的 hidden state(原本是接歌词 encoder)。
-
-核心:
-  - ACE-Step 的 AceStepDiTLayer 自带 cross_attn(用 self.cross_attn,见 modeling_acestep_v15_turbo.py:467)
-  - 它的 cross_attn 期望 encoder_hidden_states shape [B, L_enc, hidden_size]
-  - 我们把 Ovi video tower 第 i 层的 hidden state 投影到 ACE-Step 维度后,
-    作为 encoder_hidden_states 喂进去
+ACE-Step 加载
 """
 import os
 import sys
 import torch
 import torch.nn as nn
-from typing import Optional
 
 
-def load_acestep_dit(acestep_project_root: str, config_path: str = "acestep-v15-turbo",
-                    device: str = "cpu", dtype: torch.dtype = torch.bfloat16):
-    """加载 ACE-Step DiT 主干 + config(权重从 checkpoints 拿)。
-
-    返回 (dit_model, ace_config)。
-    """
+def init_acestep_handler(acestep_project_root: str,
+                          config_path: str = "acestep-v15-turbo",
+                          device: str = "cuda",
+                          dtype: torch.dtype = torch.bfloat16,
+                          offload_to_cpu: bool = False):
     if acestep_project_root not in sys.path:
         sys.path.insert(0, acestep_project_root)
 
-    from acestep.models.turbo.modeling_acestep_v15_turbo import AceStepDiTModel
-    from acestep.models.common.configuration_acestep_v15 import AceStepConfig
-    from safetensors.torch import load_file
+    from acestep.handler import AceStepHandler
 
-    ckpt_dir = os.path.join(acestep_project_root, "checkpoints", config_path)
-    cfg = AceStepConfig.from_pretrained(ckpt_dir)
-    # 强制 eager attn (Blackwell 上 flash-attn 装好后也可改成 flash_attention_2)
-    cfg._attn_implementation = "eager"
+    handler = AceStepHandler()
+    status_msg, ok = handler.initialize_service(
+        project_root=acestep_project_root,
+        config_path=config_path,
+        device=device,
+        offload_to_cpu=offload_to_cpu,
+        use_flash_attention=False,   # 与 Ovi 的 flash-attn 隔离
+    )
+    if not ok:
+        raise RuntimeError(f"ACE-Step handler init failed: {status_msg}")
 
-    model = AceStepDiTModel(cfg)
-
-    # 加载权重(ACE-Step 把 DiT 权重存在 model.safetensors 里,以 "dit." 为前缀)
-    ckpt_file = os.path.join(ckpt_dir, "model.safetensors")
-    if os.path.exists(ckpt_file):
-        sd = load_file(ckpt_file)
-        dit_sd = {k.replace("dit.", "", 1): v for k, v in sd.items() if k.startswith("dit.")}
-        missing, unexpected = model.load_state_dict(dit_sd, strict=False)
-        print(f"[ACE-Step DiT loaded] missing={len(missing)} unexpected={len(unexpected)}")
-
-    model = model.to(device=device, dtype=dtype).eval()
-    return model, cfg
+    handler.dtype = dtype
+    return handler
 
 
 class CrossAttnAdapter(nn.Module):
-    """两个塔维度不一致时的投影适配:
-       in_dim -> out_dim,LayerNorm 后再线性投影,初始化接近恒等。
+    """两塔维度不一致时的投影适配:
+       in_dim -> out_dim,LayerNorm 后再线性投影,初始化为小值,不破坏预训练特征。
     """
     def __init__(self, in_dim: int, out_dim: int):
         super().__init__()
         self.norm = nn.LayerNorm(in_dim, eps=1e-6)
         self.proj = nn.Linear(in_dim, out_dim, bias=False)
-        # 初始化为小值,避免一开始破坏预训练特征
         nn.init.normal_(self.proj.weight, std=0.02)
 
     def forward(self, x):
         return self.proj(self.norm(x))
 
 
-def build_layer_mapping(num_video_layers: int, num_audio_layers: int):
-    """video 层数和 audio 层数不一致时,把每个 video block 映射到最近的 audio block。
-    返回 dict: video_layer_idx -> audio_layer_idx
+@torch.no_grad()
+def encode_audio_to_latent(handler, audio: torch.Tensor) -> torch.Tensor:
+    """用 ACE-Step VAE 把 wav 编码到 latent。
+
+    Args:
+        handler: 已 init 的 AceStepHandler
+        audio: [B, C, S] 48kHz 音频 tensor
+
+    Returns:
+        target_latents: [B, T, 64]
     """
-    mapping = {}
-    for vi in range(num_video_layers):
-        ai = int(round(vi * (num_audio_layers - 1) / max(num_video_layers - 1, 1)))
-        mapping[vi] = ai
-    return mapping
+    vae = handler.vae
+    device = next(vae.parameters()).device
+    audio = audio.to(device=device, dtype=vae.dtype)
+    latent = vae.encode(audio).latent_dist.sample()
+    return latent.transpose(1, 2).to(handler.dtype)   # [B, T, 64]
+
+
+@torch.no_grad()
+def decode_latent_to_audio(handler, latent: torch.Tensor) -> torch.Tensor:
+    """用 ACE-Step VAE 把 latent 解码回 waveform。
+
+    Args:
+        latent: [B, T, 64]
+
+    Returns:
+        audio: [B, C, S] @ 48kHz
+    """
+    vae = handler.vae
+    device = next(vae.parameters()).device
+    # VAE decode 输入是 [B, 64, T]
+    x = latent.transpose(1, 2).to(device=device, dtype=vae.dtype)
+    return vae.decode(x).sample
+
+
+def build_context_latents_default(handler, latent_length: int, device, dtype):
+    """构造默认 context_latents(无 src audio,纯静音)。
+
+    返回 [1, latent_length, 128]
+    """
+    silence = handler.silence_latent[:, :latent_length, :].to(device=device, dtype=dtype)
+    if silence.shape[1] < latent_length:
+        pad = latent_length - silence.shape[1]
+        silence = torch.cat([silence,
+                              silence[:, :pad, :].expand(1, -1, -1)], dim=1)
+    chunk_masks = torch.ones(1, latent_length, 64, device=device, dtype=dtype)
+    return torch.cat([silence, chunk_masks], dim=-1)   # [1, T, 128]
