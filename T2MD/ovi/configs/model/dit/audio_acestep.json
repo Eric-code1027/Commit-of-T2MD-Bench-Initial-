@@ -1,14 +1,9 @@
 {
-  "_comment": "ACE-Step v15-turbo DiT 的关键超参,从 ACE-Step 的 AceStepConfig 抽出,fusion 用来构 cross-attn adapter",
+  "_comment": "ACE-Step v15-turbo 的关键超参摘要。真实维度从 AceStepHandler.config 取,这里只列 fusion adapter 需要的几项。",
   "hidden_size": 2048,
   "num_hidden_layers": 24,
-  "num_attention_heads": 16,
-  "num_key_value_heads": 16,
-  "head_dim": 128,
-  "patch_size": 2,
-  "in_channels": 8,
-  "out_channels": 8,
-  "audio_acoustic_hidden_dim": 8,
-  "rms_norm_eps": 1e-6,
+  "vae_latent_dim": 64,
+  "vae_sample_rate": 48000,
+  "context_latents_dim": 128,
   "ace_model_dir": "acestep-v15-turbo"
 }
