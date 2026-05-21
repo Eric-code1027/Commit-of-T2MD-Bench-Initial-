@@ -1,10 +1,4 @@
-"""
-新增到 ovi/utils/model_loading_utils.py 的函数。
 
-把这个函数加到原文件,**或者**用它替换 init_fusion_score_model_ovi 的调用方式。
-原 init_fusion_score_model_ovi 加载的是 Wan video + Wan audio (MMAudio) fusion;
-新函数加载的是 Wan video + ACE-Step DiT fusion。
-"""
 import os
 import json
 import torch
@@ -15,11 +9,12 @@ def init_fusion_acestep_model(
     acestep_project_root: str,
     video_config_path: str = "ovi/configs/model/dit/video.json",
     audio_config_path: str = "ovi/configs/model/dit/audio_acestep.json",
-    rank: str = "cpu",
+    device: str = "cuda",
 ):
     """构造 Wan video + ACE-Step audio 的双塔 fusion 模型。
 
-    返回 (fusion_model, video_config, audio_config)
+    Returns:
+        (fusion_model, video_config, audio_config)
     """
     assert os.path.exists(video_config_path), f"missing {video_config_path}"
     assert os.path.exists(audio_config_path), f"missing {audio_config_path}"
@@ -32,6 +27,6 @@ def init_fusion_acestep_model(
         video_config=video_config,
         audio_config=audio_config,
         acestep_project_root=acestep_project_root,
+        device=device,
     )
-    fusion_model = fusion_model.to(rank)
     return fusion_model, video_config, audio_config
